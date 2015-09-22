@@ -4,9 +4,11 @@ import json
 import cStringIO
 import sys
 
-def sheet2Json(url):
+def gsheet2json(url):
+  print 'fetching', url
   result = []
   r = requests.get(url)
+  print r
   if r.status_code == 200:
     rows = csv.DictReader(cStringIO.StringIO(r.text))
     for row in rows:
